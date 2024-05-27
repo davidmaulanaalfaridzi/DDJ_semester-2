@@ -1,0 +1,28 @@
+import tkinter as tk
+
+def buy_shoes():
+    selected_shoe = shoe_listbox.get(tk.ACTIVE)
+    confirmation_label.config(text=f"You have purchased: {selected_shoe}")
+
+# Sample shoe data
+shoes = ["Sneakers", "Boots", "Sandals", "High Heels", "Slippers"]
+
+# Create the main window
+root = tk.Tk()
+root.title("Shoe Store")
+
+# Create a listbox to display available shoes
+shoe_listbox = tk.Listbox(root)
+for shoe in shoes:
+    shoe_listbox.insert(tk.END, shoe)
+shoe_listbox.pack(pady=10)
+
+# Button to buy selected shoe
+buy_button = tk.Button(root, text="Buy", command=buy_shoes)
+buy_button.pack(pady=5)
+
+# Label to display confirmation message
+confirmation_label = tk.Label(root, text="")
+confirmation_label.pack(pady=10)
+
+root.mainloop()
